@@ -1,0 +1,33 @@
+body {max-width:unset;}
+
+main#playground {
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+#panel {
+    width: 45%;
+    padding-right: 5px;
+}
+
+#output {
+    width: 55%;
+}
+
+#panel input {
+    padding: .9rem;
+}
+
+#panel p:first-of-type {
+    justify-content: start;
+}
+
+#panel #specibi_select {
+    width: 50%;
+}
+
+#panel #params {
+    width: 20%;
+}
+
+.hljs{max-width:unset;max-height:unset;height:50%;}

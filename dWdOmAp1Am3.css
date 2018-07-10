@@ -1,0 +1,19 @@
+body {
+    font-weight: 100;
+    max-width: 750px;
+    margin: auto;
+    padding: 10px;
+}
+.hljs {
+    max-width: 375px;
+    max-height: 400px;
+    overflow: auto;
+}
+.method {
+    align-items: self-end;
+    padding: 10px;
+    margin-top: 15px;
+}
+.method > * {
+    margin: 5px;
+}

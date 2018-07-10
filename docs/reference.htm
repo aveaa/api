@@ -1,0 +1,724 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Полный справочник по I-Iacker Social API</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://unpkg.com/unnamed" /><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif;margin:8px}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.8%, rgba(255,255,255,0.2) 51.8%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-8px;top:-8px;bottom:-8px;width:48.2%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.2%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#top">Overview</a></div><div class="collapse-content"><ul><li><a href="#header-особенности-api">Особенности API</a></li><li><a href="#header-про-отрицательные-и-положительные-id">Про отрицательные и положительные id</a></li><li><a href="#header-особенности-этой-документации">Особенности этой документации</a></li><li><a href="#header-статус-этого-документа">Статус этого документа</a></li><li><a href="#header-знаете,-мне-в-метро-занятся-нечем,-есть-ли-у-вас-pdf-этого-справочника?">Знаете, мне в метро занятся нечем, есть ли у вас pdf этого справочника?</a></li><li><a href="#header-tl;dr-а-где-взять-библиотеку-под-$любимыйязык-?">TL;DR А где взять библиотеку под $ЛюбимыйЯзык ?</a></li><li><a href="#header-справочник">Справочник</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#получение-сущностей">Получение сущностей</a></div><div class="collapse-content"><ul><li><a href="#header-получить-пользователя">Получить пользователя</a></li><li><a href="#header-получить-группу">Получить группу</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#друзья&amp;подписки">Друзья&Подписки</a></div><div class="collapse-content"><ul><li><a href="#друзья&amp;подписки-друзья-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить друзей</a></li><li><a href="#друзья&amp;подписки-подписчики-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить подписчиков</a></li><li><a href="#друзья&amp;подписки-подписчики-группы-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить подписчиков</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#стена">Стена</a></div><div class="collapse-content"><ul><li><a href="#стена-посты">Посты</a><ul><li><a href="#стена-посты-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получение постов</a></li><li><a href="#стена-посты-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Создание поста</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#комментирование">Комментирование</a></div><div class="collapse-content"><ul><li><a href="#комментирование-комметарий-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить комментарий</a></li><li><a href="#комментирование-комментарии-под-постами">Комментарии под постами</a><ul><li><a href="#комментирование-комментарии-под-постами-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получение списка комментариев</a></li><li><a href="#комментирование-комментарии-под-постами-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Написание комментария</a></li></ul></li><li><a href="#комментирование-комментарии-под-постами-группы">Комментарии под постами группы</a><ul><li><a href="#комментирование-комментарии-под-постами-группы-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получение списка комментариев</a></li><li><a href="#комментирование-комментарии-под-постами-группы-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Написание комментария</a></li></ul></li><li><a href="#комментирование-комментарии-под-заметками">Комментарии под заметками</a><ul><li><a href="#комментирование-комментарии-под-заметками-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получение списка комментариев</a></li><li><a href="#комментирование-комментарии-под-заметками-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Написание комментария</a></li></ul></li><li><a href="#комментирование-комментарии-под-видео">Комментарии под видео</a><ul><li><a href="#комментирование-комментарии-под-видео-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получение списка комментариев</a></li><li><a href="#комментирование-комментарии-под-видео-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Написание комментария</a></li></ul></li><li><a href="#комментирование-комментарии-под-фотографиями">Комментарии под фотографиями</a><ul><li><a href="#комментирование-комментарии-под-фотографиями-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получение списка комментариев</a></li><li><a href="#комментирование-комментарии-под-фотографиями-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Написание комментария</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#заметки">Заметки</a></div><div class="collapse-content"><ul><li><a href="#заметки-получить-заметку-по-id-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить заметку по id</a></li><li><a href="#заметки-работа-с-заметками-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить список заметок пользователя</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#видео">Видео</a></div><div class="collapse-content"><ul><li><a href="#видео-получение-одного-видео-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить видео</a></li><li><a href="#видео-получение-списка-видео">Получение списка видео</a><ul><li><a href="#видео-получение-списка-видео-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить список видео</a></li><li><a href="#видео-получение-списка-видео-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Добавить видео</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#сообщения-sup-β-sup-">Сообщения<sup>β</sup></a></div><div class="collapse-content"><ul><li><a href="#сообщения-sup-β-sup-получение-одного-сообщения-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить сообщение</a></li><li><a href="#сообщения-sup-β-sup-работа-с-переписками">Работа с переписками</a><ul><li><a href="#сообщения-sup-β-sup-работа-с-переписками-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить переписку</a></li><li><a href="#сообщения-sup-β-sup-работа-с-переписками-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Отправить сообщение</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#фотографии">Фотографии</a></div><div class="collapse-content"><ul><li><a href="#фотографии-список-альбомов">Список альбомов</a><ul><li><a href="#фотографии-список-альбомов-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить список</a></li><li><a href="#фотографии-список-альбомов-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Создать альбом</a></li></ul></li><li><a href="#фотографии-список-фотографий-в-альбоме-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить список</a></li><li><a href="#фотографии-фотография">Фотография</a><ul><li><a href="#фотографии-фотография-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить фотографию</a></li><li><a href="#фотографии-фотография-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Добавление фотографии</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#заполучение-сервера-загрузки">Заполучение сервера загрузки</a></div><div class="collapse-content"><ul><li><a href="#заполучение-сервера-загрузки-получение-сервера-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Получить сервер</a></li></ul></div></div></nav><div class="content"><header><h1 id="top">Полный справочник по I-Iacker Social API</h1></header><p>Вижу, вы взяли себя в руки и дошли до 2 главы наших приключений?<br>
+Тогда встерчайте, <em>справочник</em>!<br>
+P.S. Если вы не читали предидущюю главу, то самое время это сделать, иначе вы не поймёте ничего тут.</p>
+<h2 id="header-особенности-api">Особенности API <a class="permalink" href="#header-особенности-api" aria-hidden="true">¶</a></h2>
+<p>Немного напомним о том, что:</p>
+<ul>
+<li>
+<p>Слеш в конце URL обязателен</p>
+</li>
+<li>
+<p>Методы запроса, кроме <code>GET</code> выполняются через <code>POST</code> и заголовок <code>X-Http-Method-Override</code></p>
+</li>
+<li>
+<p>Если нет возможности передать заголовок, то используется параметр <code>override_method</code><br>
+А теперь о том, о чём вы ещё не знаете:</p>
+</li>
+<li>
+<p>Все даты привидены в соответствии с RFC 850</p>
+</li>
+</ul>
+<h3 id="header-про-отрицательные-и-положительные-id">Про отрицательные и положительные id <a class="permalink" href="#header-про-отрицательные-и-положительные-id" aria-hidden="true">¶</a></h3>
+<p>В этом прекрасном справочнике вы ещё не раз столкнётесь с этой терминологией.<br>
+Так вот, так уж случилось, что некоторые методы работают и с группами, и с пользователями.<br>
+Получают они, конечно, данные о пользователе или группе по id.<br>
+Поэтому чтобы различать ресурсы пользователя или группы, у групп id отрицателен.<br>
+Например: у пользователя с id 30, id - 30<br>
+а вот у группы с id 1, id будет -1</p>
+<p>Это также касается альбомов или получателей сообщения.<br>
+<strong><em>Предостережение:</em></strong> не спешите всегда писать id группы/альбома со знаком минус, делайте это тогда, когда это сказано сделать.</p>
+<h2 id="header-особенности-этой-документации">Особенности этой документации <a class="permalink" href="#header-особенности-этой-документации" aria-hidden="true">¶</a></h2>
+<p>Документация закончилась на прошлой главе, пора расстаться с объяснением работы API, в первую очередь, это справочник.<br>
+Здесь будут приведены примеры использования методов и их краткое описание, но не больше.</p>
+<h2 id="header-статус-этого-документа">Статус этого документа <a class="permalink" href="#header-статус-этого-документа" aria-hidden="true">¶</a></h2>
+<p>Это - оффициальный справочник по I-Iacker Social API, однако он не нормативен относительно стандартов.<br>
+Что это значит? А какая вам разница? Читайте дальше.</p>
+<h2 id="header-знаете,-мне-в-метро-занятся-нечем,-есть-ли-у-вас-pdf-этого-справочника?">Знаете, мне в метро занятся нечем, есть ли у вас pdf этого справочника? <a class="permalink" href="#header-знаете,-мне-в-метро-занятся-нечем,-есть-ли-у-вас-pdf-этого-справочника?" aria-hidden="true">¶</a></h2>
+<p>
+  <button class="btn btn-rounded gradient-purple" onclick="window.location.href='reference.pdf';">скачать?</button>
+</p>
+<h2 id="header-tl;dr-а-где-взять-библиотеку-под-$любимыйязык-?">TL;DR А где взять библиотеку под $ЛюбимыйЯзык ? <a class="permalink" href="#header-tl;dr-а-где-взять-библиотеку-под-$любимыйязык-?" aria-hidden="true">¶</a></h2>
+<p>А зачем вам оно, вообще, надо? Но, так уж и быть, вот вам список <strong>оффициально одобренных l-lackerом</strong> библиотек:</p>
+<ul>
+<li>
+<p><a href="l-lsoc.api.jsx" title="ага">JavaScript (браузерный)</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="не троллинг">PHP5 (не JPHP)</a></p>
+</li>
+</ul>
+<h3>А где ещё можно взять библиотеку под JavaScript?</h3>
+<ul>
+<li>
+<p>Yarn: <pre><code><span class="hljs-built_in">yarn</span> add socioko</code></pre></p>
+<p>NPM: <pre><code><span class="hljs-built_in">npm</span> i socioko</code></pre></p>
+<p>Unpkg: <a href="https://unpkg.com/socioko@1.1.0/index.js">https://unpkg.com/socioko@1.1.0/index.js</a></p>
+</li>
+</ul>
+<h1 id="header-справочник">Справочник <a class="permalink" href="#header-справочник" aria-hidden="true">¶</a></h1>
+<hr>
+<section id="получение-сущностей" class="resource-group"><h2 class="group-heading">Получение сущностей <a href="#получение-сущностей" class="permalink">&para;</a></h2><p>Что такое сущности? Это группа, ну или пользователь.</p>
+<h3 id="header-получить-пользователя">Получить пользователя <a class="permalink" href="#header-получить-пользователя" aria-hidden="true">¶</a></h3>
+<p><code>GET /user/{id}/</code><br>
+<strong>Успешное выполнение</strong>:</p>
+<ul>
+<li>
+<p>Response 202 (application/json)</p>
+<pre><code>{
+      "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+      "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value">[
+              <span class="hljs-string">"Александр"</span>,
+              <span class="hljs-string">"Детилот"</span>
+          ]</span>,
+          "<span class="hljs-attribute">gender</span>": <span class="hljs-value"><span class="hljs-string">"male"</span></span>,
+          "<span class="hljs-attribute">user_group</span>": <span class="hljs-value"><span class="hljs-string">"ADMINISTRATOR"</span></span>,
+          "<span class="hljs-attribute">verified</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+          "<span class="hljs-attribute">ban</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+          "<span class="hljs-attribute">dead</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+          "<span class="hljs-attribute">rating</span>": <span class="hljs-value"><span class="hljs-number">500</span></span>,
+          "<span class="hljs-attribute">have_donated</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+          "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+          "<span class="hljs-attribute">last_action</span>": <span class="hljs-value"><span class="hljs-string">"Sunday, 01-Jul-18 11:48:57 EDT"</span></span>,
+          "<span class="hljs-attribute">avatar</span>": <span class="hljs-value">{
+              "<span class="hljs-attribute">any</span>": <span class="hljs-value"><span class="hljs-string">"content/avatars/9970080465.jpg"</span>
+          </span>}
+      </span>}
+  </span>}</code></pre>
+</li>
+</ul>
+<h3 id="header-получить-группу">Получить группу <a class="permalink" href="#header-получить-группу" aria-hidden="true">¶</a></h3>
+<p><code>GET /club/{id}/</code><br>
+<strong>Успешное выполнение</strong>:</p>
+<ul>
+<li>
+<p>Response 202 (application/json)</p>
+<pre><code>{
+      "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+      "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"/etc/コックのアニメ"</span></span>,
+          "<span class="hljs-attribute">about</span>": <span class="hljs-value"><span class="hljs-string">"Первый мемесовый паблик"</span></span>,
+          "<span class="hljs-attribute">owner</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+          "<span class="hljs-attribute">verified</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+          "<span class="hljs-attribute">ban</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+          "<span class="hljs-attribute">dates</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+          "<span class="hljs-attribute">nsfw</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+          "<span class="hljs-attribute">avatar</span>": <span class="hljs-value">{
+              "<span class="hljs-attribute">any</span>": <span class="hljs-value"><span class="hljs-string">"content/gavatars/199_1.jpg"</span>
+          </span>}
+      </span>}
+  </span>}</code></pre>
+</li>
+</ul>
+</section><section id="друзья&amp;подписки" class="resource-group"><h2 class="group-heading">Друзья&Подписки <a href="#друзья&amp;подписки" class="permalink">&para;</a></h2><p><code>id</code> - id сущности, в этом случае id у всех сущностей положителен.</p>
+<div id="друзья&amp;подписки-друзья" class="resource"><h3 class="resource-heading">Друзья <a href="#друзья&amp;подписки-друзья" class="permalink">&nbsp;&para;</a></h3><div id="друзья&amp;подписки-друзья-get" class="action get"><h4 class="action-heading"><div class="name">Получить друзей</div><a href="#друзья&amp;подписки-друзья-get" class="method get">GET</a><code class="uri">/friends/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/friends/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value"><span class="hljs-number">6</span></span>,
+    "<span class="hljs-attribute">1</span>": <span class="hljs-value"><span class="hljs-number">15</span></span>,
+    "<span class="hljs-attribute">2</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">3</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+    "<span class="hljs-attribute">4</span>": <span class="hljs-value"><span class="hljs-number">16</span></span>,
+    "<span class="hljs-attribute">5</span>": <span class="hljs-value"><span class="hljs-number">24</span></span>,
+    "<span class="hljs-attribute">6</span>": <span class="hljs-value"><span class="hljs-number">34</span></span>,
+    "<span class="hljs-attribute">7</span>": <span class="hljs-value"><span class="hljs-number">9</span></span>,
+    "<span class="hljs-attribute">8</span>": <span class="hljs-value"><span class="hljs-number">29</span></span>,
+    "<span class="hljs-attribute">9</span>": <span class="hljs-value"><span class="hljs-number">36</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="друзья&amp;подписки-подписчики" class="resource"><h3 class="resource-heading">Подписчики <a href="#друзья&amp;подписки-подписчики" class="permalink">&nbsp;&para;</a></h3><div id="друзья&amp;подписки-подписчики-get" class="action get"><h4 class="action-heading"><div class="name">Получить подписчиков</div><a href="#друзья&amp;подписки-подписчики-get" class="method get">GET</a><code class="uri">/followers/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/followers/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value"><span class="hljs-number">7</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="друзья&amp;подписки-подписчики-группы" class="resource"><h3 class="resource-heading">Подписчики группы <a href="#друзья&amp;подписки-подписчики-группы" class="permalink">&nbsp;&para;</a></h3><div id="друзья&amp;подписки-подписчики-группы-get" class="action get"><h4 class="action-heading"><div class="name">Получить подписчиков</div><a href="#друзья&amp;подписки-подписчики-группы-get" class="method get">GET</a><code class="uri">/subscribers/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/subscribers/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">1</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+    "<span class="hljs-attribute">2</span>": <span class="hljs-value"><span class="hljs-number">7</span></span>,
+    "<span class="hljs-attribute">3</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+    "<span class="hljs-attribute">4</span>": <span class="hljs-value"><span class="hljs-number">11</span></span>,
+    "<span class="hljs-attribute">5</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+    "<span class="hljs-attribute">6</span>": <span class="hljs-value"><span class="hljs-number">156</span></span>,
+    "<span class="hljs-attribute">7</span>": <span class="hljs-value"><span class="hljs-number">25</span></span>,
+    "<span class="hljs-attribute">8</span>": <span class="hljs-value"><span class="hljs-number">19</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="стена" class="resource-group"><h2 class="group-heading">Стена <a href="#стена" class="permalink">&para;</a></h2><div id="стена-посты" class="resource"><h3 class="resource-heading">Посты <a href="#стена-посты" class="permalink">&nbsp;&para;</a></h3><p>Посты, тут всё ясно. В id нужно передать id сущности. У пользователя id положительный, у группы отрицательный.</p>
+<div id="стена-посты-get" class="action get"><h4 class="action-heading"><div class="name">Получение постов</div><a href="#стена-посты-get" class="method get">GET</a><code class="uri">/wall/id</code></h4><p><strong><em>ПРЕДУПРЕЖДЕНИЕ</em></strong>: с 1 июля, получение постов требует наличие валидного токена</p>
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/wall/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">420</span></span>,
+      "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"Обновление: с завтрашнего дня wall будет обязательно требовать ключ API.\n&lt;br&gt;&lt;br&gt;\n&lt;br&gt;&lt;br&gt;А также… с завтрашнего дня, все смогут получить доступ к Experimental Write APIs.\n&lt;br&gt;&lt;br&gt;\n&lt;br&gt;&lt;br&gt;P.S. никто не хочет сделать норм документацию к API? "</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">1</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">407</span></span>,
+      "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"Документация: &lt;a href=\"http://l-lsoc.cf/api2/docs.html\"&gt;http://l-lsoc.cf/api2/docs.html&lt;/a&gt;"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">2</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">411</span></span>,
+      "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"Небольшое обновление: API теперь доступен при помощи AJAX с любого сайта :)"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">3</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">414</span></span>,
+      "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"Теперь у нас так же есть API Playground!\n&lt;br&gt;&lt;br&gt;&lt;a href=\"http://l-lsoc.cf/api2/try.php\"&gt;http://l-lsoc.cf/api2/try.php&lt;/a&gt;"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">4</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">415</span></span>,
+      "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"хуйня"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="стена-посты-put" class="action put"><h4 class="action-heading"><div class="name">Создание поста</div><a href="#стена-посты-put" class="method put">PUT</a><code class="uri">/wall/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/wall/id</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">post</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"Hello, Write API!"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="комментирование" class="resource-group"><h2 class="group-heading">Комментирование <a href="#комментирование" class="permalink">&para;</a></h2><p>В <code>target</code> передают тип объекта, а в <code>id</code> его id.<br>
+Список типов объекта: post, group (<em>посты в группе</em>), note, photo, video.<br>
+Внизу всё есть вроде.</p>
+<div id="комментирование-комметарий" class="resource"><h3 class="resource-heading">Комметарий <a href="#комментирование-комметарий" class="permalink">&nbsp;&para;</a></h3><div id="комментирование-комметарий-get" class="action get"><h4 class="action-heading"><div class="name">Получить комментарий</div><a href="#комментирование-комметарий-get" class="method get">GET</a><code class="uri">/comment/target/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/comment/target/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">133</span></span>,
+    "<span class="hljs-attribute">target</span>": <span class="hljs-value"><span class="hljs-number">284</span></span>,
+    "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-number">11</span></span>,
+    "<span class="hljs-attribute">created</span>": <span class="hljs-value"><span class="hljs-string">"Saturday, 12-May-18 13:28:45 EDT"</span></span>,
+    "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"Альберт, хмм&lt;/b&gt;"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="комментирование-комментарии-под-постами" class="resource"><h3 class="resource-heading">Комментарии под постами <a href="#комментирование-комментарии-под-постами" class="permalink">&nbsp;&para;</a></h3><div id="комментирование-комментарии-под-постами-get" class="action get"><h4 class="action-heading"><div class="name">Получение списка комментариев</div><a href="#комментирование-комментарии-под-постами-get" class="method get">GET</a><code class="uri">/comments/post/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/comments/post/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">128</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">1</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">129</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">2</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">130</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">3</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">131</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">4</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">132</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">5</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">133</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="комментирование-комментарии-под-постами-put" class="action put"><h4 class="action-heading"><div class="name">Написание комментария</div><a href="#комментирование-комментарии-под-постами-put" class="method put">PUT</a><code class="uri">/comments/post/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/comments/post/id</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"comment"</span>: {
+        <span class="hljs-string">"target"</span>: <span class="hljs-number">284</span>, <span class="hljs-comment">//id поста</span>
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"Just Monika."</span>
+    }
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="комментирование-комментарии-под-постами-группы" class="resource"><h3 class="resource-heading">Комментарии под постами группы <a href="#комментирование-комментарии-под-постами-группы" class="permalink">&nbsp;&para;</a></h3><div id="комментирование-комментарии-под-постами-группы-get" class="action get"><h4 class="action-heading"><div class="name">Получение списка комментариев</div><a href="#комментирование-комментарии-под-постами-группы-get" class="method get">GET</a><code class="uri">/comments/group/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/comments/group/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">128</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">1</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">129</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">2</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">130</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">3</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">131</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">4</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">132</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">5</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">133</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="комментирование-комментарии-под-постами-группы-put" class="action put"><h4 class="action-heading"><div class="name">Написание комментария</div><a href="#комментирование-комментарии-под-постами-группы-put" class="method put">PUT</a><code class="uri">/comments/group/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/comments/group/id</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"comment"</span>: {
+        <span class="hljs-string">"target"</span>: <span class="hljs-number">284</span>, <span class="hljs-comment">//id поста</span>
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"Just Monika."</span>
+    }
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="комментирование-комментарии-под-заметками" class="resource"><h3 class="resource-heading">Комментарии под заметками <a href="#комментирование-комментарии-под-заметками" class="permalink">&nbsp;&para;</a></h3><div id="комментирование-комментарии-под-заметками-get" class="action get"><h4 class="action-heading"><div class="name">Получение списка комментариев</div><a href="#комментирование-комментарии-под-заметками-get" class="method get">GET</a><code class="uri">/comments/note/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/comments/note/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">128</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">1</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">129</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">2</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">130</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">3</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">131</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">4</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">132</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">5</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">133</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="комментирование-комментарии-под-заметками-put" class="action put"><h4 class="action-heading"><div class="name">Написание комментария</div><a href="#комментирование-комментарии-под-заметками-put" class="method put">PUT</a><code class="uri">/comments/note/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/comments/note/id</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"comment"</span>: {
+        <span class="hljs-string">"target"</span>: <span class="hljs-number">284</span>, <span class="hljs-comment">//id поста</span>
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"Just Monika."</span>
+    }
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="комментирование-комментарии-под-видео" class="resource"><h3 class="resource-heading">Комментарии под видео <a href="#комментирование-комментарии-под-видео" class="permalink">&nbsp;&para;</a></h3><div id="комментирование-комментарии-под-видео-get" class="action get"><h4 class="action-heading"><div class="name">Получение списка комментариев</div><a href="#комментирование-комментарии-под-видео-get" class="method get">GET</a><code class="uri">/comments/video/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/comments/video/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">128</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">1</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">129</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">2</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">130</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">3</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">131</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">4</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">132</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">5</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">133</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="комментирование-комментарии-под-видео-put" class="action put"><h4 class="action-heading"><div class="name">Написание комментария</div><a href="#комментирование-комментарии-под-видео-put" class="method put">PUT</a><code class="uri">/comments/video/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/comments/video/id</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"comment"</span>: {
+        <span class="hljs-string">"target"</span>: <span class="hljs-number">284</span>, <span class="hljs-comment">//id поста</span>
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"Just Monika."</span>
+    }
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="комментирование-комментарии-под-фотографиями" class="resource"><h3 class="resource-heading">Комментарии под фотографиями <a href="#комментирование-комментарии-под-фотографиями" class="permalink">&nbsp;&para;</a></h3><div id="комментирование-комментарии-под-фотографиями-get" class="action get"><h4 class="action-heading"><div class="name">Получение списка комментариев</div><a href="#комментирование-комментарии-под-фотографиями-get" class="method get">GET</a><code class="uri">/comments/photo/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/comments/photo/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">128</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">1</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">129</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">2</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">130</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">3</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">131</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">4</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">132</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">5</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">133</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="комментирование-комментарии-под-фотографиями-put" class="action put"><h4 class="action-heading"><div class="name">Написание комментария</div><a href="#комментирование-комментарии-под-фотографиями-put" class="method put">PUT</a><code class="uri">/comments/photo/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/comments/photo/id</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"comment"</span>: {
+        <span class="hljs-string">"target"</span>: <span class="hljs-number">284</span>, <span class="hljs-comment">//id поста</span>
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"Just Monika."</span>
+    }
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="заметки" class="resource-group"><h2 class="group-heading">Заметки <a href="#заметки" class="permalink">&para;</a></h2><p><code>id</code> - id заметки</p>
+<div id="заметки-получить-заметку-по-id" class="resource"><h3 class="resource-heading">Получить заметку по id <a href="#заметки-получить-заметку-по-id" class="permalink">&nbsp;&para;</a></h3><div id="заметки-получить-заметку-по-id-get" class="action get"><h4 class="action-heading"><div class="name">Получить заметку по id</div><a href="#заметки-получить-заметку-по-id-get" class="method get">GET</a><code class="uri">/note/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/note/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">46</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"test.php"</span></span>,
+    "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-number">7</span></span>,
+    "<span class="hljs-attribute">edited</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">created</span>": <span class="hljs-value"><span class="hljs-string">"Monday, 07-May-18 15:51:07 EDT"</span></span>,
+    "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"&amp;lt;br&amp;gt;"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="заметки-работа-с-заметками" class="resource"><h3 class="resource-heading">Работа с заметками <a href="#заметки-работа-с-заметками" class="permalink">&nbsp;&para;</a></h3><p>Здесь <code>id</code> - это id пользователя, чьи заметки мы собираемся получить (или изменить, правда изменять можно только свои)</p>
+<div id="заметки-работа-с-заметками-get" class="action get"><h4 class="action-heading"><div class="name">Получить список заметок пользователя</div><a href="#заметки-работа-с-заметками-get" class="method get">GET</a><code class="uri">/notes/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/notes/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">47</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">1</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">48</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="видео" class="resource-group"><h2 class="group-heading">Видео <a href="#видео" class="permalink">&para;</a></h2><div id="видео-получение-одного-видео" class="resource"><h3 class="resource-heading">Получение одного видео <a href="#видео-получение-одного-видео" class="permalink">&nbsp;&para;</a></h3><div id="видео-получение-одного-видео-get" class="action get"><h4 class="action-heading"><div class="name">Получить видео</div><a href="#видео-получение-одного-видео-get" class="method get">GET</a><code class="uri">/video/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/video/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2557</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Kasane Teto (All VB's)「Love is War (Mwk Remix)」UTAUカバー"</span></span>,
+    "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+    "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"https://youtu.be/er-Sw2b-XVM"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Write API test"</span></span>,
+    "<span class="hljs-attribute">category</span>": <span class="hljs-value"><span class="hljs-string">"GENERAL"</span></span>,
+    "<span class="hljs-attribute">banned</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">created</span>": <span class="hljs-value"><span class="hljs-string">"Saturday, 30-Jun-18 05:30:59 EDT"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="видео-получение-списка-видео" class="resource"><h3 class="resource-heading">Получение списка видео <a href="#видео-получение-списка-видео" class="permalink">&nbsp;&para;</a></h3><p>Тут <code>id</code> - это id пользователя</p>
+<div id="видео-получение-списка-видео-get" class="action get"><h4 class="action-heading"><div class="name">Получить список видео</div><a href="#видео-получение-списка-видео-get" class="method get">GET</a><code class="uri">/videos/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/videos/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2525</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="видео-получение-списка-видео-put" class="action put"><h4 class="action-heading"><div class="name">Добавить видео</div><a href="#видео-получение-списка-видео-put" class="method put">PUT</a><code class="uri">/videos/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/videos/id</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">video</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Kasane Teto (All VB's)「Love is War (Mwk Remix)」UTAUカバー"</span></span>,
+    "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"https://www.youtube.com/watch?v=er-Sw2b-XVM"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Write API test"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="сообщения-sup-β-sup-" class="resource-group"><h2 class="group-heading">Сообщения<sup>β</sup> <a href="#сообщения-sup-β-sup-" class="permalink">&para;</a></h2><p>Тут <code>id</code> - это id сообщения,<br>
+<code>from</code> - отправитель,<br>
+<code>to</code> - получатель</p>
+<div id="сообщения-sup-β-sup-получение-одного-сообщения" class="resource"><h3 class="resource-heading">Получение одного сообщения <a href="#сообщения-sup-β-sup-получение-одного-сообщения" class="permalink">&nbsp;&para;</a></h3><div id="сообщения-sup-β-sup-получение-одного-сообщения-get" class="action get"><h4 class="action-heading"><div class="name">Получить сообщение</div><a href="#сообщения-sup-β-sup-получение-одного-сообщения-get" class="method get">GET</a><code class="uri">/message/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/message/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">466</span></span>,
+    "<span class="hljs-attribute">from</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+    "<span class="hljs-attribute">to</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">sent</span>": <span class="hljs-value"><span class="hljs-string">"Friday, 29-Jun-18 15:10:14 EDT"</span></span>,
+    "<span class="hljs-attribute">red</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">subject</span>": <span class="hljs-value"><span class="hljs-string">"ъ"</span></span>,
+      "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"ъ"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="сообщения-sup-β-sup-работа-с-переписками" class="resource"><h3 class="resource-heading">Работа с переписками <a href="#сообщения-sup-β-sup-работа-с-переписками" class="permalink">&nbsp;&para;</a></h3><p>Да, мы сами понимаем какая система неудобная, но, к сожалению, вам придётся с этим смириться.<br>
+Но мы уже работаем над исправлением этой проблемы!</p>
+<div id="сообщения-sup-β-sup-работа-с-переписками-get" class="action get"><h4 class="action-heading"><div class="name">Получить переписку</div><a href="#сообщения-sup-β-sup-работа-с-переписками-get" class="method get">GET</a><code class="uri">/messages/from/to</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/messages/from/to</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">466</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">1</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">464</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">2</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">462</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">3</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">458</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">4</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">457</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="сообщения-sup-β-sup-работа-с-переписками-put" class="action put"><h4 class="action-heading"><div class="name">Отправить сообщение</div><a href="#сообщения-sup-β-sup-работа-с-переписками-put" class="method put">PUT</a><code class="uri">/messages/from/to</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/messages/from/to</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">subject</span>": <span class="hljs-value"><span class="hljs-string">"Восстание против l-lackera"</span></span>,
+    "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"Сегодня в 23:00 в группе /testpool, присоединяйтесь к нам."</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="фотографии" class="resource-group"><h2 class="group-heading">Фотографии <a href="#фотографии" class="permalink">&para;</a></h2><p>Загрузка фотографий очень сложный процесс, поэтому объяснения о том, как работает метод <code>PUT photo</code> будут в следующем параграфе.</p>
+<div id="фотографии-список-альбомов" class="resource"><h3 class="resource-heading">Список альбомов <a href="#фотографии-список-альбомов" class="permalink">&nbsp;&para;</a></h3><p>Здесь <code>id</code> - id сущности, чьи альбомы мы хотим получить (или изменить)<br>
+Здесь дейвствует стандартное правило про id сущностей. Напомним, у пользователя id положителен, а у группы нет.</p>
+<div id="фотографии-список-альбомов-get" class="action get"><h4 class="action-heading"><div class="name">Получить список</div><a href="#фотографии-список-альбомов-get" class="method get">GET</a><code class="uri">/albums/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/albums/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">14</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Тестовый альбом"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Не заходить. Или заходить, я всего лишь надпись, не коп."</span></span>,
+      "<span class="hljs-attribute">created</span>": <span class="hljs-value"><span class="hljs-string">"Saturday, 30-Jun-18 06:01:22 EDT"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="фотографии-список-альбомов-put" class="action put"><h4 class="action-heading"><div class="name">Создать альбом</div><a href="#фотографии-список-альбомов-put" class="method put">PUT</a><code class="uri">/albums/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/albums/id</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">album</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Тестовый альбом"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Не заходить. Или заходить, я всего лишь надпись, не коп."</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="фотографии-список-фотографий-в-альбоме" class="resource"><h3 class="resource-heading">Список фотографий в альбоме <a href="#фотографии-список-фотографий-в-альбоме" class="permalink">&nbsp;&para;</a></h3><p>Здесь <code>id</code> - id альбома.<br>
+Стоит отметить, что id альбомов у групп отрицателен.</p>
+<div id="фотографии-список-фотографий-в-альбоме-get" class="action get"><h4 class="action-heading"><div class="name">Получить список</div><a href="#фотографии-список-фотографий-в-альбоме-get" class="method get">GET</a><code class="uri">/album/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/album/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">0</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">89</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="фотографии-фотография" class="resource"><h3 class="resource-heading">Фотография <a href="#фотографии-фотография" class="permalink">&nbsp;&para;</a></h3><p>Здесь <code>id</code> - id фотографии</p>
+<div id="фотографии-фотография-get" class="action get"><h4 class="action-heading"><div class="name">Получить фотографию</div><a href="#фотографии-фотография-get" class="method get">GET</a><code class="uri">/photo/id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/photo/id</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">72</span></span>,
+    "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+    "<span class="hljs-attribute">path</span>": <span class="hljs-value"><span class="hljs-string">"content/img-albums/8269339925.jpg"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">album</span>": <span class="hljs-value"><span class="hljs-number">89968</span></span>,
+    "<span class="hljs-attribute">created</span>": <span class="hljs-value"><span class="hljs-string">"Friday, 01-Jun-18 16:48:22 EDT"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="фотографии-фотография-put" class="action put"><h4 class="action-heading"><div class="name">Добавление фотографии</div><a href="#фотографии-фотография-put" class="method put">PUT</a><code class="uri">/photo/id</code></h4><p>Здесь <code>id</code> - id альбома.<br>
+Стоит отметить, что id альбомов у групп отрицателен.</p>
+<h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/photo/id</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">photo</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">server</span>": <span class="hljs-value"><span class="hljs-string">"nfs://username@l-lsoc.cf"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Моя первая картинка"</span></span>,
+    "<span class="hljs-attribute">photo</span>": <span class="hljs-value"><span class="hljs-string">"FFD8FFE000104A46494600010100000100010000FFDB0043000503040404030504040405050506070C08070707070F0B0B090C110F1212110F111113161C1713141A1511111821181A1D1D1F1F1F13172224221E241C1E1F1EFFDB0043010505050706070E08080E1E1411141E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1E1EFFC20011080096009603012200021101031101FFC4001B00000203010101000000000000000000000506000407030201FFC4001A010002030101000000000000000000000003040102050006FFDA000C03010002100310000001D9649DD2415162B14FDF32D32ADA9564AE95DCF79ED958810A734D7CCCDC38099815821F44C9B5BBD3A491F4249F3BB805AC36359982AF86E68CBDE76682061165575BF2E56D22DDA90ED05C0D606C00861A476B83C803B36F5246558B100DB485F2EE207BBCBD556FE15EE86257014C633F8BE7D22C37C83745AA3AADB190CB69A52537D95BF3ED04E19242AB917732BD1E858129A952C7BCFABB60596E15951D4F89C428CE686D38F2CF2B5AAF36F333116D033FB5E8673AE0B059BCC2307C91E5E23D74369F8AC36F4BA26D84E25F3EEAD19415AD745EA00824FD8AF7D59DC8631EC7F41A4B1D9FC5AAE0B67121EB5668B72E10201C03BEC520F601D87E5BD3F52AA5CD634A0EA33989D615464042B57FB167D160ABAECB7097258352E1032CF340139CBE36514CA0A9D51FCBDDB91F7D4F273C1ED605A815B2E0BD5479168AE5169A8ABABE31A33D32AFF5D0DB4B9FB1DE1053B874FB0C962CB4682DF44AF915B0D2A905D846E7E9E69E08F1D2CDECFD97B000DA0D7E08EB1F414817A096A0593CD757434CE43B8B38A422141BC3137744C20F337DF571F45B0131F3CD7712ACFAA87E0D5DA00585F0C0DE35E28C212B48F63536A0AB6818A3CC5D6EC11AE339D9DFC9157AC78934D136C920ABD54A4AD55D6641B3CC74922E4624997CEB2748EBF22EE91923B81FFFC4002A10000202020202010303050100000000000203010400051112132114061022152332202425303141FFDA0008010100010502FF0054CF19F555B3484BBB1D473149A8D26AF6A131946F98624FC8BFE8B370552576D4E2F62D19AF614F8CB2D1457D7A9FFA516CEDBB2DD6759B06990CD0345B4E203367551D75AB265A00108FBD839058568CF8EB88BA202BAD602735B722D2FEA103669FA93122090889AE49D8D6AF669E818BF82D1288B0D393D552EA1F799E22CDCECD2B45DEC5D6F366C971AC8EE7A839175A259658BC067E6615AEE5E22739040CF15D3BCF91BBEB3F8A87D8FDB6F6BAC133ACC9F50EDCB6A2E1D6511083A6A91B7BE74F9758BFDFAD5DCCCB88191D9A8BAB78F2E8112E9BEDEF7C0FCECFB5ED88C61F001E1212B1330A89FEE35B4B8154A5CA7CC058A74C6C15BA95D07FA8FC3659B372D05D927EB9354EDDD4A46BD7B2052DFA7D653B2FB0CCF7A16625E730C45AF73ADA4572D4D764D6A746BD60D827BC551EA8F325B7E61471295632B54F2D35A61CF38854991B3413105F6F00D5D7530921B05D46D972ED35845653F64C39ABB2B6AB26704BBF65C9C75681AF3F2625D62DACA4AD32359698A5BEE912354A5B30122B9192E3C99B8D814E6BC590DBF64C44BD57077043667136E335B7A504E1F28B1BFB0053DACF88652AF8EB62E4AC4D4714ACC5509F9CC352C520DBE1122B961BD82A05F673AFCC0ACA473B60B78CAD6A466ADAE716D4C9D9D9A4175AE00DF759020A5D27000648F5953CAEBEB544B98D3629C246509AF0B65A6B07C166E97E739F4E053013D769D81734E6BC12628917B1D757C6B2CF17DE754A21CE447CDB18DBAD29A222EAAEAEC25EB8D7B2ABB1040B1D7C6A0033E3A48B39CFA5F5FE7D7BE8AD79E3E27640B954D212CFD3A71158D0D64B4F16B9F9014A3C9B1A64BB9A9D5786BB163295A0C6CCC34A613118F3E64171315AAACD9776D434F407871CD2290D816514112080E2583EFC7E88E2362EDFA65DB2BC5B18D78C8D19FF0085C01F683CB4D83C10EC5D300C953B61AF3A9D2EFA02ADBDCA7E0D341DF60D4FD958BE31F12526AEB1B0F7692339AA1B3E5D3C598A8CFE2C5F7CB3210A388E751586D599EC074AA4BA6CAF85C34264BB650BE751952C36C636D5DAE00F0B18C1F76AB1F99157A8EA7817A33B791AE7F59B33ECB224B94AEB6D2A90F19623F1B6EF03D4E4F63EA4DAB62172AD824D76BB03E763762747E5D9EB4E3F1AE5D1DE4220B1E4583EC318CD96A6CAE5AB319FFDFA498D865957B787E3B24995992006FB64C7382661886F78B0AE63E92DAD5A56F6A8F1B8FD4D2392AFB0BB059AEA80616DC1D4E02CBECD04E5012A84864B81F51997E9C89395C622BFF8B40F6CEBC4FB5CA0E183DFE0DD5DF46DF524BEF226291A492262C452AD858927D6AC712D3E9905EEA1CC2D2C99838060ECF4AA6AB5EBE837EA7C5B04B860CFBC54CAD8D8EEBD43A1B4CDBC417BCA67232D719CFF00FFC4002811000202010401040202030000000000000102000311041221312205101341143223516191B1FFDA0008010301013F01888CE70B3F0ADC4208383EC9ACA11F05A1BAB2B91C89515F926B9541E3DF4FA6B02F1C44D3589C969AAA832927B9766FB052A651E9F9ADF230657F32E68231F73D32D16D799A9C9393EDA5D36D60EE2020F52CB428E66B755B14E3EE7A6E918D9F2BF19FF916A6CF5C4F512DF92AD8FF0013D3E9152ED9AB3E7B47B35BF31207EA3B94F0B35371F908FA9ACFE44218CA29DAA327B8FB6B38668BB2D6D8A798A86A438EE38773B9A7C6653FCCD96E1044B32AD69EBEA31CB130807B95DEAB5F3F52D0FAC240134749AFCE7CF1817EF885F4EBC131F657580DFEA6A7504A6D956C0DE7D4AEAA2CFD235477ED5894BEE1912DB8D0870BC4A7579E0CD75C96D7F18E657636DF25CCEBCDA0F33931EBFEA53BEA6E269D197CDFEE666B1B15E07DCAA866FD61960BC39D9D4B1B718A4CA2BD91D76B112AB481B607D91EEAEC232201E388F5F3995697C0667C28CBB8F11867A945DC794B34E3696066DDA01FEE663AFDCD2DA3673026E3BDBA966A58B772D722A1008C20623A8BCE9D7D875340A1AE20CF513B6A18867FFFC40023110002020202020300030000000000000000010211031221310410133241334261FFDA0008010201013F01F56BDCF1C9C7A2385EDD724A3C548F02F57EED1C1831B8DDBE4FAAB1E476A8697D8F2A2ECF1AB5A5E922897461466CEAB546CDBD97060AF8DDB324FE49598A1AAF4DD217256C455326EEC8E19495C49E19C23B3177C9F247F0DD1D2A45552351C09616E445A8468F273AAD288EAFEC2FF0F8F231118F267BD783E6CB0EC8CD4A1B31CA1AF0C862537CB1F8F8D107A3E092E78646FA272D7A376DF2386DD9E4648D69136A313B664C94842D6B9319997E92C9B320F833C13766962C1282B1BB31E4549139BB219E4A5A9DA32E2A7C10CB6E872B6CAB212FEACC91A91F5E176471AA30E38BCAFD48AE497F331123C8750E0F1F997AFFC4003810000103030106040209030500000000000100021103122131042232415161101371812342202433526291A1B1D105E1F0143082B2C1FFDA0008010100063F02FF006B494CA41E3CFA8775A3460EA838F173E8A5BB31AD397BAE015CE6B9BD9DAA7BA8DBD5C25343CE797741DF46D68BDCB160F65F169870FC2A69BA7B73F0A959FC2C697143FA8BF6B752DA1E4D4DF76EC1E50A6996D26F2DD927F342B5475CE0B210DD9EAA11AE58DBC7303283F9532DFF00B050D11F437788E8B78AD72B75DABAD9FDD6ECD2AA380A838A8DE20ABD3A7C4F007EAA9B5E629D36C0E981AA9D7083AD00F309ED640796EE954E9BB71F99CA8D41D4744DD9A9B77BABBE5EEA9BEF8A85FBEC3D27FB7D092B1A0D16BA64AC3B3A0F54C6CE002BC9B72EDE27B26B8EA0DAEF7FEE88AA45A35468346EC008D32752A932A54F2EEC34B91A4FE4704273AE80FDE2A8DA73FE0541CEE3E68940F8F96DFC96736E4FAA74FDE03F94DF494D0ED106F97BD5321FDFA2DA2A7CA0B60774EA6D3C2C8F745F58B2D73A73E9CD347C335466E54FEAFBCDED2AA6D15064AC9E1128567F0346137A3532883AEBE36523713811CFD3F94EAB5379FA40EBF747F2BE27C83CDA9FF89AD3AE4947FCE4A9D538B5DBC7D939D41C1D0627BA18813E63BD86154DA3686DC0E80ABC4B2EE4D4693366C723D5433707E1D553F3BED06EC753D53F67189DD77E1829B49821AD09EFE5384F79E1A74E3DCF89876747387EC11AEEA37B2961A261A143B8EA9F32A1ECBFE32AA346001AA3B3DB93AA86373CCA31ABB098D4EBDDBACE15C4C7AE8BCC73CC8EE9CF646F6A55472867AAA976A7C6AD7F9E2CA5DA79FAA140443725792DE27E09FDD54234C351A8FAF6B8EAD0BE0CB7B92986B56F328E8E11A7745CD333A23483B4C4AA6F640796EF772A1A106B9E04AB98FC2B1E7784A34C6A53AE76BD15AC064EA56AE58713EC9B49AD8681B8DE7EA51AC5EE07E623F650C3F16A60760A4F329FBD12571287213F1298D07441D32993F28840861774445505D548E49B2307893AC1D823760052CAAD85B9A11AABABD5B8ADD6A7577F1BCC9ECA39046B3F53A2F2C72108AE6B9F86E1F5695F580437D15941CC9EABCD2EB993BC4F33D545B7CF15A8965B07916A0E2D8211A8EE099B392B2880B2649D02B4D1A8E7740137D13774C1C31A39A14043DE358D02B66632E3DFC2A54DA767657271BC260236B6AB1DD9CAED9EB36B8E9A1506411D543F2A004CC02D3C41C350BE1D00C3F870A58E31DD40714E05CE2463283C8975D94C6E6E6E07AA0DDA5B754A7AA9AD529977263785A9CDD9BEDDD87543A81DBA22ED6B54FD078BAABF1BC834497113E01AE6B64A96B88CA9B90A9890BED5FF009AA7267782CE8F09D1A543FAA17D60E0EE4D0AC02234554D136499F62896033F7DDAA2F7BB742952E71080BB0B67D9D80D43506EB59D3AAAD586461AD46A35C34BA145433D135DEEB8569E1B2D19817DCE3D90B038B29E0635EE9A764A352F6F16355441326C13E13D96FE044CA86E18340BB78ECFB49A7F596BB8BB775E4D565CD27881469D3743F851754700C9C01AAF86EC8E489F2DDF92CB73E0F70F4F0029803D57D6BCBBAE31674F1B24E7A2D51A1743DCD361E572753A8D2D7B4C1055CF1B8111C91A1E55B1A61641853AB4EA14D37860FD5662AB39C6A83D86415BCA1D4CB413BA4F352478387BAC70AC103BAE8B50B0485476C7B58EDA1ACB6A475EEA008456E0172BA1F4CFE138570006502D7428794F7ECEF7301338507687FBA7F9B0E7D076E63F31E010B0C5D82562B3BBC22896C546F6C15BCC70F65AFE8AB52873A996C93180512114E8E7CD53A4E608B75E69EFA6DB69B04BBC3550755213E96D1753F3A04FCA0AB870BFF752A071725E45275D1AB917D6BADD05BD7C2C91EC16E8329DE512270EEE8486AC3651308E32ABB5A32ECFE4A15A548F0A7B58A34EAD8781FA15FEA294B6D3969E479A8032BCB6993CCA10249D13580E8354E6B7010AA5C00ECB1A94C1C8E547E1FE5646A0150F602139F41DE59E8721161B7AE14B0EE3F20745DD4158F06D94DB4EE9B834409E6AD6E07EFE1BB8500C00BFFFC4002810010002010401040203010101000000000100112131415161718191B1C1A1D110E1F0F12030FFDA0008010100013F21FF00E4C30D7530796F3CAE574BF3380828B1627D40CBF59580DD5347F7E61192397F246ECB535D07DFCCAC6A9E3FF2F6B3AE70476EAF05E0E37A38328A56FB1E4FE3E369020D14951BD87C2B8E615C8C3C8F03D209D3D0AD5F9C44EB1696ECED704DB8B29B557F51253D9C4AD1642A37C901BC0790A8806383FF000C7A1E7065E589A52D2C63A4E86547EDBB62EBD77E22010DD1E49A4B473C8BFC4A3020761FA113AAA63EB41F37280A1E4398A779A3C7EA141D160469A6CDBFCC4C0CB302AEA2A71780725946F1AB60A57B3FF04C801956123C41FEE6329A0C04C6A7D0FBFC4CF2403D71F04AA02CC7C80C1EF2C5316E747C3F30D680D5D34C9ED2876155A06A9F132E030238C989518DEECBBE9A19ACC77CA5118EFE98C725D073A333075173AA7FC405F82C429BB611E22EC0BFE1C6B33BDAE29BBC477B61F33D09695953E998B8DEDF3AFDC232F557344CE4634EA77F057DC71D8AF270F781C76ED6E9CFDCD82A2F8341E172F72C5128ABE8D63038FAB5DEF31CC855EB7E91D941464F2A40A3456DDD65297867F5BC1AC307F1934AB35AE3FC750349A75C1F90F30E37F29B2321A3C87FECD6362A151FB10A67C42CBB506905A5041E1A7BD40829F139F894C2C65287D237D6F4DF9F2B8B6CDE3EC830DB51C0FD200762AA68B2FF0033156126E15552D2704BBB17EC15EFFCDE115C9336276FFEA96206BE8A39A8DCBAFCACBE0B878CB20292861202BFA91D58AF55F81896FD18B614480ACB7E665A4EE17183D31A29EA2F13D25B1DCA92DADBE6255D0A25422C5B7EE082AD1BFE6A1ACD51AB0473FA4CD78AC7D8FC41BCBF406E818A002014B222D738C4CEC1B2D65D596C0B1DBA80434D1BDF1374C35704A45CB6B7F545A90B8A59C6E86F2E77B80CB4957570CCF3B5C1F50A44A83C947EE0888072CB9F60823858BABE0F966FEF42AE01245B4F7A6022B7ABBCB85159F885D1BEB1501AB5A6FD7D7EA6283555219A1223229BA86AC16359D1FD7130C4A0C77D9FA894AAE81C7F703B7C45CD7885C6E4311D6A7389FEB8415DFA7B4A062EE568E8AD2DB12DEC6B86EF1E62E300F043499BDE596B56BB103782516CF242F9B26A02FD441E0CCD642FA4A3174E086A8780D48A798DB5A1CD4AA87C0B10C0689D615AADCA83FAEA691EC15A1035E8A098D0B7AEAE7C42CB46AAA64FED87D9CDCBFCE67E10DE6D32731BC870E232A1A803C4EECBE87A357E1B2785558FD1D664EE64D44AC20BF02A4C49DD5E9BA6713A5396FC23811BA6131A0B74E22C01B1CA2E3A97D81C4A1990C15C82FBFB965C74B45EFD7EA6418E57B8EFE0804E1A3F187FDF894CEFADFF005733D5DDEACD70515574F4118733F13B958BDA3E14DBCC09E36D48D360BD91888D0DE6B23D1421EDB02EE5356AD9354D87D7E9144696E057963910CABB26497B951AF257BCE409FC4E21D63AE9BBC1CCBF457AC1D68D0A8E259671B405DFDC59A5C4CD855D6AC2EACF06B536C74E2A550BBC0F32B368EE5152D2AA187087FBF12D701A3A3D904D7702BC66B0FC77599AFE2225EAE92C2368BD811114C1E2EFCC5DA86E51B4DCD500222C715FD9983CD80A88F70889B9EA6F5F8875DD7E52672244CAE36AD73400BA9AE6B2F7AD6BE0C451A466C6B841E2D317A2DDEF166738861BC523EF299C8CEAD25A861E25CD5DB680C83E6ABD61DD029860779C9BCAC8BAE90736DF0A21AB72DDAB7263EF7BF6770EBD7AB8B510E815E8D9958B98314B7B258220834DEA75046424C6F1D797F2963BE1A78DDFAF7854E69B46B286836E34941FA2002A0E1E3C408245C1A409A80D03F82DFC0A54D9DA60896A667A4C431E5770C0235CCD722A0A4615AA5809388CBFBAED6AA25A41B9C4BC7736307E846672AB10011EAA83006D033DB302C14EE1B3620C9B7C8B4CF799802590D17DB1C221794639218587DF03A83F31ADD8B6AA816F01459203F8DB6C175EF70A9EAD7C6E9A145C8573E7182D347A2F531F1356A777A104BEF131058BD47DE0138D41B658F189A98AD4560034BE664343A63D59D24CC6D55EF105193233C0842DBCC9D723C52657AEF0595191BFEC36656AECF16879C3172C85F723AFC10D6C14396677B43007DCC33A1BAB5B3003C3D4611D4F7940BAB326E61F1060185F58BB8C99801968C1ECACD298CF506B363BAE9083A1D19810D209D9025B0640A6854732E4761778A2B965C990782594E09DF73FFFDA000C03010002000300000010F3FE7CC3BC07B3CF0C0623591DAF3C07203DE09CBCB7CFF02C59A14905BDD2DEF1863580E41878487BB49ED5BFE3394E3D69899BC855CA8A047006F2D8AC34734251A8E05F061723F1C8C2FFC40025110100020103030403010000000000000001001121314151617181A1B1C1F01091D1F1FFDA0008010301013F1094AAD89D807A5C7414C0B9516277F7AA8752FD33F7C46E18181C19DFF397ACE5E7B4D7B7DFF26942CDC35805CD7ADF4FB9D82860D179C81EF644D71AA19A7A76751E481015AEB9CE75F07AC77EBBBFC3F608865F44BB3E65AB06876C99F10426A62B22BAF8F1B70B018775ABEF99479C140E8FCDBE20D1B7BBAFDE085C03E7F1A08C0B9E87B7F90D9B5E7EFA1E23EE14D3BCD622DE7DFF009E66FB87EB1BCA6AB73520069DBC45DCB65E9E7A4AE20BC3E38FC29E68D7CBCF5FD731B035A3A1F2EBFA8BC82C26840E2BA796372072AE306C0E58317A0C07A46ED243AEA3D62FAC3BB12863D4F2F43634EF042C2E6B8363BBABC188E0006CE31F6E0935B5705A0478BC6F7F111E0077A8AC3BA6395165819A6B9850D77639797A1EAF985459837B4BE25B5F08DF7BBF9885DA3100B195B841C42FB408D328896FE47E8851DA0B04AADB6BAFF0E90056C1D7DE588E3DA52B4B3A409D27780B11EC9A0F5FBEF364DC72353886122B23A63B32CB7FB6A76B2E589869159F4C4372A39077EAF4E0F2C568ABA4391D8F681020E8A86641DBFB518B22001619F37184AAD07B6626E7FFC4002111010002030002020301000000000000000100112131411051617181B1F0C1FFDA0008010201013F108A1B8377CBAAB7C42A5A0D9FE95F5A8CD4B8082E39E582D305B08572CD7A817B8C2CBB3136943994D0AAF16C5DD4C686148A2DEE00F1EC6C2B7C474FB5B1556B93F3FE06EB8F058B434E25556A58E298D0A70E748F04E3B29A2D5E343A0CAAEB12C4353E0EC0E4C6A312CA107F494BC2E19010B764D88B7F3161238EB92F36435BFF00BB32506C90E0224D256ADA201A43602577182DA667D4C04561131D4144AE6AB811D2D4A40CC0BAD31B5C7EA396E7B819634B53503F7889B7711511417C12BDE9A88842E0B84DC02F917F5100048869A5FDCBC41980A4742698F138631B85B0997878FFC4002710010001040202030002030101000000000111002131415161718191A1B1C1D11020F0E130FFDA0008010100013F10FF00E5D42C40FB69ADA582FB21501001619574AAE49940024DE2C11406498CA2440A5CDA3150BED5CC1A62C3819A1B03D886A4245C92CCDB742730D3517C06381D9145685115FA69EBFD71FD2483F0BB7A3EA922F28FD96B9E0B47DC2A3F5503F097B794B9F9FE1668BB112331EE22AFC112943D2604848D9C56A4BA712C8864C487CD2963CB7355466DFF000C53B8C3062DB2E8B69C78A438C5421C1176F23851660D979F0E7D522073C127632E99AB614DB35223B1969A0366080F068FF44146EB4B7EB351CEE4AB2ABFCD48C900272BAA684C82BC021F00C7AA99D1C8D9A039DAC2ACD0C304222D5CBC4891A44A08890D8012CBA092BC0D4A400080C3E1099CDC089A74D0D96557C397935178292C6002E3CE26CDAF497DF15848DDD28A349E2988CEB59AC033140463504ABB9B81B1DDF251967CA98AE43FBF8A796112DD836124DC8EB3FE817DD420032B489B0CAEDB3E55FC05259E7A0F1FFB466E6C0ED97A551507713CCA8850982E741C0A1EED52BA18B2022DE17DE8E50C7964901C90679FAA0B5248120EA4C05E0A6FAE1822443C4851339D65C21A7492E164D4D21C488DC8207E0EC680321889B7E5B3EE8D268862B20772B41A2043993FB0A8DA11D922E23AA7408451E4FF00080A8036D66AA164CA2F1663565D0EFD4B9C4F4134D7DB2E61FB495252507943FAA423E90B09107AAB6CC4AD9A85D98E7B51368FB3329EC0F92A0713ED287F5E8D04F399AEA7F00F1BA625D4DD20D87820486F2CB81CC36790C842DEFF00156A5E4E322781010060F751F64EB1660FA290736432C59E3F9A5E049A16C7D4FCD4372A1BB1797C5000080B1FE0522F9671A1FD58D171B82C831B3F23F312B288EECC9102C9F6B107057D0A2D43FAA0244423FE78A2C0264B0F71D26FD4D4DACC2B0649BEECF747B248B64B1A113C56D71BDE4ED0879EEAC4F8371B5060D5CDD0A44E46245E67333CEA882612A5F6201EAA40BA5659040CBB3D3495EFA61131E041B6D4BC8A36EC06576B97CD2A04BBA5E02A5D4A633E8740F27FC9A80CCD0D8E39C49EAA7E2AE1A5849166931A5C152A652754FC81071153EB6E0E30D26A1CE4C493E5608F2EA9FA792C984CE23093C1400551F296D31E29CF2A6992F3F8BF15369D1C25AC7AB7C55E205E1747E58A1025D457EE8B83C070F8C5221106519982105EEF3417AF0C07620482ABF3518F9FCB57F882F803861D946823DDBC8DC9E655FF002961942451EC061F4CAD6FD37D2B6EF0213861F711EA86E273F44782817869D17FE2A0E29B65A505B4B9889A53727CB9818298942348B4212EC93726A3C06764EC76C0755310C46D4463E2A6D015AA12B336131050725859BF6A068249B6F37623CD67E049029930C51695D364A09FCD4C3B69701BA6D2B25512F4F0539C83A0EE1D9B1ACDB54714224E7DB14632751FC853CC183391064B98D9A28CB8BAAB808D75A2840B90BCB71C4E0EA6AFCDEDCA0225F37AB5A4B82EC8A747CAD2252CEE6844054BD489E87E98BD71BE6A5557EE9B1023EA189A86A116E2CE03B69C17622CD85D82C0EBBAB5D79560FF00959751C534D18269943FAA33E34288095EA72D159962D57CD0950098215BBDDDEAA22625965D7F2689182C0ABB52D4730B0AC1D1014B5DCF97E0F2B6EA82825898C1074163DD0808906B4F98568CE8A54503FC13FBA217F295E5E04C8D1584AE8B76E9ECA8E2F06BBC6562D92A5ED12A5F2C4AF41415F64DC0BA1C0EA6C55FE608717D96718A4AE8B0672B0C61EE827441210E9CFAA98D09DD5CE2F75F4BD4D3A3631E0A8B452195C01B68A415734BC45BB22242CD986A2C344414B31F11A2FE47DFC5DBEB9741392917709C863B6AC6F9200F89A9608C464BD140546D82A589379020DD363A2AC4957120484118ABC79781F2AC7A3EA95DB20910F38AB0806D6F5CF840288AF8159E01B262D69E2A5C148400E21447515716C1AE9D0E17A8A0C58C059F9A79AD962048D8F1509E036C901D28CF550309AC0150782D187A5091920A14B14BD85CE7C29838CBA688EEC0087513AA69C473C82F822305F674A95D1617DC92F66FF14AB49296CAF34AD6678A47AA58C831F751DF280411FD83DD6281F35101695202F0B192908B201111F799A9249C4BFDD10396219A44C247D558C1993E90111D50A09012489C4331F8F5B0BB49464D279C3460082B208C91790C8F93543BA0C64AF124FD144044219D21ECA5504299D8F52FCD6A0C3207FCEA5ECA1A8C8C4CE3393F0176B21AC0581A2B3440135399C45312B0B2E257436F541336691982E2EA06544B42867B87134FE0A43FAE9300C462592961400B812E029C8AEA33729F50FBA9B4935153C61DC95747D5395DD313527A9169B7E064D809C2BC1D5F3528E7846A2D216E267B6999033EDCBECA4754E1F85F94CB135BCB2348DB302359537A036B42D319630DAE5657F82AF76226CDDA53B0080354258419233EAA2789DE5F4390404E16B6EAA298C088462CDA9480CEC65BD8E81F34CFA332A889936288B2B66C4C580F8AE2A9D8C7931DD46E711A5E8E352F54ECC67A2C60F0DFE684235E029441B4A076148DDD49C07B0542C4D10963F2DFD4D5CFAF842A7E54251918146033A956936D9BAC6A394D20C4A39268E643A8A7E443207644A462D3644B828871E2C648F146404E710A9A24AB3AF144018ADA631192984E6066F0C710FBACFA8421BCCD8F148CE93039CFE0B79A26D8033E1349B354533B7A5ABE52138EE909EA83E12623142D024512D411E07F6340C9261692FDA90E855138493429803D1F945102E52A09665656E7F284C411615A41BA326884B68369824F313142C070080AD36A98A4244299BDAD34BE3627D8C78C5330D8A1EC620F558DF92C1EAAC1CA089252C6D0389E62B77587DBC5E8C8B9977682CCB096B27742091A5AAECC5105ACC98DC3B6E75352275A1A088202C16037E6A6052AD20FEFFAA2642F2A0ECC50E659BBF942213F163F941268572F32D1100DFAA39159BDB3DFFDC350A8D52E4490B83B7FA29EFB58C50A02F290D02A32C12B214BCB28E9A62E02D9E2884778687C8D17751E8DD24FA7AA977395A971C85994B4136B8EE2800C641EF3EDA9DF20726DEAA180415801A9EEF2F7409991E63F0307B7C099A44302BD81E5EAAD338D3F9453E1294242324801F03448F4F9002AE2E7DD1321086140472130E45A594D7A89DBA504FF00DA40136897E29544AB204A4692B11041702E2803EDDA01FA1F9AD5114B0BAA79E1A8D46FF8A84A2240A3FADB8AD3D25EE420C38A9420558C5CA2C1744C89D81C5330014565E2691FB1CBBD5B285CCE498F5FC4D02B8C2DB97E5569C0D9673707F9AB8344106126D134E47111EA195E5E2A249B025C52E5CAA1FF0066A60A17B84A97DFE69DD04238D87E29C0F2E2357951920198D9F742F80518458CAC5CD5A8E2178196FD835D518D0DE5E9EAA009291E2A744AD5105B312293152408050A609C26A496455AB978EBF6A460DE8C46BCA607DB1F14146D04DD6D76BFC15FFFD9"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="заполучение-сервера-загрузки" class="resource-group"><h2 class="group-heading">Заполучение сервера загрузки <a href="#заполучение-сервера-загрузки" class="permalink">&para;</a></h2><p>И это последний и самый сложный раздел справочника. И именно поэтому он не будет таким строгим и лаконичным.<br>
+Сейчас мы с вами попытаемся разобраться, как же загрузить фотографию в l-lacker social?</p>
+<p>На самом деле, всё чуток сложней чем вы думаете, но всё же, вот список действий которые вам необходимо предпринять:</p>
+<ul>
+<li>
+<p>создать сервер загрузки</p>
+</li>
+<li>
+<p>перекодировать фотографию в hex</p>
+</li>
+<li>
+<p>создать альбом если его ещё нет</p>
+</li>
+<li>
+<p>загрузить фотографию в альбом (см. предидущий параграф)<br>
+Сложности, конечно возникнут именно на 2 этапе.<br>
+Если вы используете PHP4+, то вам повезло, вы сможете перекодировать фотографию такой штукой: <code>bin2hex(file_get_contents(&quot;фото.png&quot;))</code><br>
+Для других языков, чётких инструкций нет, так что гуглите, решение уже есть наверняка, ведь мы не первые кто собрались кодировать файлы в hex.</p>
+</li>
+</ul>
+<p>Но допустим, мы с этим разобрались, что дальше-то?<br>
+Читайте справочник к методам, рано или поздно вы всё поймёте.<br>
+<em>Подсказка:</em> hex-строка идёт в поле <code>photo</code>, а в поле сервер кладём <code>nfs://user@l-lsoc.cf</code>, где <code>user</code> - ваш id сервера, который вы получили.</p>
+<div id="заполучение-сервера-загрузки-получение-сервера" class="resource"><h3 class="resource-heading">Получение сервера <a href="#заполучение-сервера-загрузки-получение-сервера" class="permalink">&nbsp;&para;</a></h3><div id="заполучение-сервера-загрузки-получение-сервера-get" class="action get"><h4 class="action-heading"><div class="name">Получить сервер</div><a href="#заполучение-сервера-загрузки-получение-сервера-get" class="method get">GET</a><code class="uri">/get_upload_server</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/get_upload_server</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>202</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"202:Success"</span></span>,
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">upload_server</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">consumes</span>": <span class="hljs-value">[
+        <span class="hljs-string">"*"</span>
+      ]</span>,
+      "<span class="hljs-attribute">for</span>": <span class="hljs-value"><span class="hljs-string">"&lt;ВАШ_ТОКЕН&gt;"</span></span>,
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"&lt;ID_СЕРВЕРА&gt;"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><script>/* eslint-env browser */
+/* eslint quotes: [2, "single"] */
+'use strict';
+
+/*
+  Determine if a string ends with another string.
+*/
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+/*
+  Get a list of direct child elements by class name.
+*/
+function childrenByClass(element, name) {
+  var filtered = [];
+
+  for (var i = 0; i < element.children.length; i++) {
+    var child = element.children[i];
+    var classNames = child.className.split(' ');
+    if (classNames.indexOf(name) !== -1) {
+      filtered.push(child);
+    }
+  }
+
+  return filtered;
+}
+
+/*
+  Get an array [width, height] of the window.
+*/
+function getWindowDimensions() {
+  var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.body,
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+  return [x, y];
+}
+
+/*
+  Collapse or show a request/response example.
+*/
+function toggleCollapseButton(event) {
+    var button = event.target.parentNode;
+    var content = button.parentNode.nextSibling;
+    if (!content.children) {
+      content = content.nextSibling;
+    }
+    var inner = content.children[0];
+
+    if (button.className.indexOf('collapse-button') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        // Currently showing, so let's hide it
+        button.className = 'collapse-button';
+        content.style.maxHeight = '0px';
+    } else {
+        // Currently hidden, so let's show it
+        button.className = 'collapse-button show';
+        content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+function toggleTabButton(event) {
+    var i, index;
+    var button = event.target;
+
+    // Get index of the current button.
+    var buttons = childrenByClass(button.parentNode, 'tab-button');
+    for (i = 0; i < buttons.length; i++) {
+        if (buttons[i] === button) {
+            index = i;
+            button.className = 'tab-button active';
+        } else {
+            buttons[i].className = 'tab-button';
+        }
+    }
+
+    // Hide other tabs and show this one.
+    var tabs = childrenByClass(button.parentNode.parentNode, 'tab');
+    for (i = 0; i < tabs.length; i++) {
+        if (i === index) {
+            tabs[i].style.display = 'block';
+        } else {
+            tabs[i].style.display = 'none';
+        }
+    }
+}
+
+/*
+  Collapse or show a navigation menu. It will not be hidden unless it
+  is currently selected or `force` has been passed.
+*/
+function toggleCollapseNav(event, force) {
+    var heading = event.target.parentNode;
+    var content = heading.nextSibling;
+    var inner = content.children[0];
+
+    if (heading.className.indexOf('heading') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+      // Currently showing, so let's hide it, but only if this nav item
+      // is already selected. This prevents newly selected items from
+      // collapsing in an annoying fashion.
+      if (force || window.location.hash && endsWith(event.target.href, window.location.hash)) {
+        content.style.maxHeight = '0px';
+      }
+    } else {
+      // Currently hidden, so let's show it
+      content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+/*
+  Refresh the page after a live update from the server. This only
+  works in live preview mode (using the `--server` parameter).
+*/
+function refresh(body) {
+    document.querySelector('body').className = 'preload';
+    document.body.innerHTML = body;
+
+    // Re-initialize the page
+    init();
+    collapseAll();
+
+    document.querySelector('body').className = '';
+}
+
+/*
+  Determine which navigation items should be auto-collapsed to show as many
+  as possible on the screen, based on the current window height. This also
+  collapses them.
+*/
+function collapseAll() {
+  var itemsArray = Array.prototype.slice.call(
+    document.querySelectorAll('nav .resource-group .heading'));
+
+  for(var i = 0, len = itemsArray.length; i < len; i++) {
+    toggleCollapseNav({target: itemsArray[i].children[0]}, true);
+  }
+}
+
+/*
+  Initialize the interactive functionality of the page.
+*/
+function init() {
+    var i, j;
+
+    // Make collapse buttons clickable
+    var buttons = document.querySelectorAll('.collapse-button');
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = toggleCollapseButton;
+
+        // Show by default? Then toggle now.
+        if (buttons[i].className.indexOf('show') !== -1) {
+            toggleCollapseButton({target: buttons[i].children[0]});
+        }
+    }
+
+    var responseCodes = document.querySelectorAll('.example-names');
+    for (i = 0; i < responseCodes.length; i++) {
+        var tabButtons = childrenByClass(responseCodes[i], 'tab-button');
+        for (j = 0; j < tabButtons.length; j++) {
+            tabButtons[j].onclick = toggleTabButton;
+
+            // Show by default?
+            if (j === 0) {
+                toggleTabButton({target: tabButtons[j]});
+            }
+        }
+    }
+
+    // Make nav items clickable to collapse/expand their content.
+    var navItems = document.querySelectorAll('nav .resource-group .heading');
+    for (i = 0; i < navItems.length; i++) {
+        navItems[i].onclick = toggleCollapseNav;
+
+        // Show all by default
+        toggleCollapseNav({target: navItems[i].children[0]});
+    }
+}
+
+// Initial call to set up buttons
+init();
+
+window.onload = function () {
+    collapseAll();
+    // Remove the `preload` class to enable animations
+    document.querySelector('body').className = '';
+};
+</script></body></html>
